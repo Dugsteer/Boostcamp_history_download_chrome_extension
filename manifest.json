@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Boostcamp History → CSV",
+  "version": "1.0.1",
+  "description": "Export full Boostcamp history to CSV, locally.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://boostcamp.app/history"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.boostcamp.app/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://*.boostcamp.app/*"]
+    }
+  ]
+}
